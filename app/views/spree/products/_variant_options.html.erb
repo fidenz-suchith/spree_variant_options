@@ -20,7 +20,7 @@
           <% unless (variants = @product.variants_for_option_value(value)).empty? %>
             <% classes << ( variants.any? { |v| v.in_stock? } ? "in-stock" : "out-of-stock" ) if index == 0 %>
             <% classes << 'with-image' if value.has_image? %>
-            <li><%= link_to value.has_image? ? image_tag(value.image.url, :alt => value.presentation) : content_tag(:span, value.presentation), "#",:value => value.presentation,:onclick => "my_function(this.id,this.value)", :id => lindex.to_s+xindex.to_s, :title => value.presentation, :class => classes.join(" "), :rel => "#{type.id}-#{value.id}" %></li>
+            <li><%= link_to value.has_image? ? image_tag(value.image.url, :alt => value.presentation) : content_tag(:span, value.presentation), "#",:value => value.presentation, :id => lindex.to_s+xindex.to_s, :title => value.presentation, :class => classes.join(" "), :rel => "#{type.id}-#{value.id}" %></li>
           <% end %>
           <% xindex += 1 %>
         <% end %>
